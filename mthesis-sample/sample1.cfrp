@@ -1,0 +1,25 @@
+%{
+#include "timer.h"
+#include "last_press.h"
+#include "sample_on.h"
+#include "misc.h"
+%}
+
+%input timer :: Signal Int = timer_input_node;
+%input last_press :: Signal Int = last_press_input_node;
+%import print_int2 :: Int -> Int -> () = print_int2;
+%import sample_on ::
+  Signal Int -> Signal Int -> Signal Int
+  = sample_on;
+
+let v = foldp (\c acc ->
+  if c = 106 then
+    acc - 1
+  else if c = 107 then
+    acc + 1
+  else
+    acc
+  ) 0 last_press in
+let sv = sample_on timer v in
+let x = foldp (\v acc -> acc + v) 0 sv in
+lift2 print_int2 sv x
