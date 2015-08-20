@@ -57,6 +57,14 @@ executable cfrp
     , containers
     , cfrp
 
+executable cfrp_datadir
+  ghc-options: -Wall
+  hs-source-dirs: .
+  main-is: cfrp_datadir.hs
+  build-depends:
+      base == 4.*
+    , cfrp
+
 test-suite spec
   type: exitcode-stdio-1.0
   hs-source-dirs: spec
