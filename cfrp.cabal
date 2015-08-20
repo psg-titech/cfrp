@@ -3,13 +3,14 @@
 
 name:                cfrp
 version:             0.0.1
--- synopsis:
+synopsis:
+  A compiler for CFRP, an FRP language aimed at embedded systems
 -- description:
 license:             MIT
 license-file:        LICENSE
 author:              Kohei Suzuki
-maintainer:          eagletmt@gmail.com
--- copyright:
+maintainer:          cfrp@psg.cs.titech.ac.jp
+copyright:           Copyright (c) 2014, Kohei Suzuki
 category:            Language
 build-type:          Simple
 cabal-version:       >=1.8
@@ -18,10 +19,10 @@ data-dir: data
 data-files: *.h *.cc
 extra-source-files:
   README.md
-  mthesis-sample/Makefile
-  mthesis-sample/*.h
-  mthesis-sample/*.cc
-  mthesis-sample/*.cfrp
+  sample/Makefile
+  sample/*.h
+  sample/*.cc
+  sample/*.cfrp
 
 library
   ghc-options: -Wall

@@ -1,6 +1,8 @@
+CFRP_VERSION = 0.0.1
 CXX = g++
 CABAL_DIR = ../.cabal-sandbox
-DATA_DIR = $(CABAL_DIR)/share/x86_64-linux-ghc-7.6.3/cfrp-0.0.1
+HASKELL_ABI = x86_64-osx-ghc-7.10.2
+DATA_DIR = $(CABAL_DIR)/share/$(HASKELL_ABI)/cfrp-$(CFRP_VERSION)
 CXXFLAGS = -I $(DATA_DIR) -Wall -W
 LDFLAGS =
 CFRP = $(CABAL_DIR)/bin/cfrp
@@ -19,3 +21,8 @@ memory_manager.o: $(DATA_DIR)/memory_manager.cc
 
 .cfrp.cc:
 	$(CFRP) $< > $@
+
+clean:
+	$(RM) sample1
+	$(RM) *.o
+
